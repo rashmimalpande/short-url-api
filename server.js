@@ -1,7 +1,15 @@
 var express = require('express');
 var app = express();
+var code = 2214;
 
-app.get('/', function(req,res){
-    res.send("Hello World")
+app.use('/new', function(req,res){
+    var url = req.path;
+    var originalUrl = url.toString().slice(url.indexOf('/')+1);
+    
+    res.json({'original' : originalUrl, 'short-url': code});
+});
+
+app.get('/:code', function(req, res){
+    
 });
 app.listen(process.env.PORT || 8080);

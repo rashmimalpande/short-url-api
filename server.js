@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
-var code = 2214;
+var code = Math.ceil(Math.random()*10000);
 var originalUrl;
+
 app.use('/new', function(req,res){
     var url = req.path;
     originalUrl = url.toString().slice(url.indexOf('/')+1);

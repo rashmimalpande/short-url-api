@@ -7,7 +7,7 @@ app.use('/new', function(req,res){
     var url = req.path;
     originalUrl = url.toString().slice(url.indexOf('/')+1);
     
-    res.json({'original' : originalUrl, 'short-url': code});
+    res.json({'original' : originalUrl, 'short-url': req.hostname + '/' + code});
 });
 
 app.get('/:code', function(req, res){
